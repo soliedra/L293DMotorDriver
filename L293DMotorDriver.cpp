@@ -20,14 +20,17 @@ void L293DMotorDriver::writePWM(int pwmSpeed)
 	{
 		digitalWrite(_pin_dir_1, LOW);
 		digitalWrite(_pin_dir_2, HIGH);
+		
+		// set PWM output
+		analogWrite(_pin_pwm_output, -pwmSpeed);
 	}
 	else
 	{
 
 		digitalWrite(_pin_dir_1, HIGH);
 		digitalWrite(_pin_dir_2, LOW);
-	}
 		
-	// set PWM output
-	analogWrite(_pin_pwm_output, pwmSpeed);
+		// set PWM output
+		analogWrite(_pin_pwm_output, pwmSpeed);		
+	}
 }
